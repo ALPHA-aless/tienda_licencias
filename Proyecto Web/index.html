@@ -1,0 +1,321 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>GAME STORE</title>
+  <style>
+    /* Estilo para el cuerpo */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #cce7ff; /* Fondo azul suave */
+    }
+
+    /* Barra de menú */
+    .navbar {
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #575757;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .titulo-principal, .bienvenida {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      color: rgba(156, 20, 149, 0.856);
+      text-shadow: 2px 2px 3px black;
+    }
+
+    .titulo-principal {
+      font-size: 60px;
+      margin-top: 30px;
+    }
+
+    .bienvenida {
+      font-size: 26px;
+      margin-top: 20px;
+      line-height: 1.5;
+      color: rgb(19, 4, 4);
+      text-align:center;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      font-size: 24px;
+      color: black;
+      text-shadow: 1px 1px 2px #ccc;
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+
+    .game-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .game {
+      text-align: center;
+      margin: 10px;
+      width: 200px;
+    }
+
+    .game img {
+      width: 100%;
+      height: auto;
+    }
+
+    .price {
+      font-size: 1.2em;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    .stars {
+      color: gold;
+      margin-top: 5px;
+    }
+
+    .game button {
+      margin: 5px 0;
+      padding: 5px 10px;
+      border: none;
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .game button:hover {
+      background-color: #218838;
+    }
+
+    #carrito {
+      margin-top: 30px;
+      font-size: 1.2em;
+      background-color: #f1f1f1;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    #carrito button {
+      background-color: #007bff;
+      margin-top: 10px;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .producto {
+      margin: 20px;
+      display: inline-block;
+    }
+
+    .carrito {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+
+    #total {
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 40px;
+      border-top: 2px solid #333;
+      padding: 15px;
+      background-color: #f1f1f1;
+      text-align: center;
+    }
+
+    .social-icons img {
+      width: 50px;
+      margin: 0 10px;
+      vertical-align: middle;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Barra de menú -->
+  <div class="navbar">
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="contacto.html">Contacto</a>
+  </div>
+
+  <!-- Contenido de la página -->
+  <div class="content">
+    <h1 class="titulo-principal">Bienvenidos a Game Store</h1>
+    <p class="bienvenida">
+      ¡Prepárate para entrar al universo donde cada partida es una aventura! 🎮<br>
+      En <strong>Game Store</strong>, tu destino gamer, descubrirás los mejores títulos para PS4, desde clásicos que marcaron historia hasta las últimas joyas recién lanzadas.<br>
+      No vendemos solo juegos... ¡ofrecemos mundos enteros para conquistar!
+    </p>
+  </div>
+
+
+    <!-- Sección de videojuegos -->
+<div class="game-container">
+  <!-- Juego 1 -->
+  <div class="game">
+    <img src="https://i5.walmartimages.com/seo/Call-of-Duty-Black-Ops-4-Activision-Playstation-4-Purchase-the-game-to-get-2XP-Only-at-Walmart_ca37d82d-2251-4b11-ab3f-e3e186d8d654_3.5b80c1f102fe93f52f76f1b4acca7f6e.png" alt="Call of Duty Black Ops 4">
+    <h3>Call of Duty Black Ops 4</h3>
+    <div class="price">S/ 90.00</div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Call of Duty Black Ops 4', 90)">Añadir al carrito</button>
+  </div>
+
+
+  <!-- Juego 2 -->
+  <div class="game">
+    <img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2017/10/dragon-ball-fighterz-portada-ps4.jpg?tf=640x" alt="Dragon Ball Fighter Z">
+    <h3>Dragon Ball Fighter Z</h3>
+    <div class="price">S/ 110.00</div>
+    <div class="stars">⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Dragon Ball Fighter Z', 110)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 3 -->
+  <div class="game">
+    <img src="https://juegosdigitalesperu.com/files/images/productos/1570317104-crash-team-racing-nitro-fueled-ps4.png" alt="Crash Team Racing">
+    <h3>Crash Team Racing Nitro</h3>
+    <div class="price">S/ 130.00</div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Crash Team Racing Nitro', 130)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 4 -->
+  <div class="game">
+    <img src="https://www.portalgames.com.ar/wp-content/uploads/2020/04/GTA-V.-premium-Edition-510x630.jpg" alt="GTA V">
+    <h3>Grand Theft Auto V</h3>
+    <div class="price">S/ 50.00</div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Grand Theft Auto V', 50)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 5 -->
+  <div class="game">
+    <img src="https://juegosdigitalesperu.com/files/images/productos/1570816839-mortal-kombat-11-ps4.png" alt="Mortal Kombat 11">
+    <h3>Mortal Kombat 11 complete edition</h3>
+    <div class="price">S/ 200.00</div>
+    <div class="stars">⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Mortal Kombat 11 complete edition', 200)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 6 -->
+  <div class="game">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_721710-MLA43428634827_092020-O.webp" alt="Ghost of Tsushima">
+    <h3>Ghost of Tsushima</h3>
+    <div class="price">S/ 89.00</div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Ghost of Tsushima', 89)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 7 -->
+  <div class="game">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_853815-MLU78020820114_082024-O.webp" alt="Red Dead Redemption 2">
+    <h3>Red Dead Redemption 2</h3>
+    <div class="price">S/ 75.00</div>
+    <div class="stars">⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Red Dead Redemption 2', 75)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 8 -->
+  <div class="game">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_903791-MLA51178807345_082022-O.webp" alt="Elden Ring">
+    <h3>Elden Ring Remastered</h3>
+    <div class="price">S/ 85.00</div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Elden Ring Remastered', 85)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 9 -->
+  <div class="game">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_654961-MLU78259396799_082024-O.webp" alt="Minecraft">
+    <h3>Minecraft Edition Java</h3>
+    <div class="price">S/ 95.00</div>
+    <div class="stars">⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Minecraft Edition Java', 95)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 10 -->
+  <div class="game">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_818605-MLA40917205147_022020-O.webp" alt="Resident Evil 2">
+    <h3>Resident Evil 2</h3>
+    <div class="price">S/ 70.00</div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Resident Evil 2', 70)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 11 -->
+  <div class="game">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_617729-MLU70912626351_082023-O.webp" alt="Street Fighter">
+    <h3>Street Fighter</h3>
+    <div class="price">S/ 79.00</div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Street Fighter', 79)">Añadir al carrito</button>
+  </div>
+  
+
+  <!-- Juego 12 -->
+  <div class="game">
+    <img
+  </div>
+
+  <div id="carrito">
+    <h2>🛒 Carrito de Compras</h2>
+    <ul id="listaCarrito"></ul>
+    <p id="total">Total: S/ 0.00</p>
+    <button onclick="finalizarCompra()">Finalizar compra</button>
+    <p id="mensajeGracias"></p>
+  </div>
+
+  <script>
+    let total = 0;
+
+    function agregarCarrito(nombre, precio) {
+      const lista = document.getElementById('listaCarrito');
+      const item = document.createElement('li');
+      item.textContent = `${nombre} - S/ ${precio.toFixed(2)}`;
+      lista.appendChild(item);
+
+      total += precio;
+      document.getElementById('total').textContent = `Total: S/ ${total.toFixed(2)}`;
+    }
+
+    function finalizarCompra() {
+      if (total === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+      }
+
+      const mensaje = document.getElementById('mensajeGracias');
+      mensaje.textContent = `Gracias por su compra. Vuelva pronto.
+    
+      TOTAL PAGADO DE LOS VIDEOJUEGOS: S/ ${total.toFixed(2)}`;
+
+      // Limpiar carrito
+      document.getElementById('listaCarrito').innerHTML = "";
+      document.getElementById('total').textContent = "Total: S/ 0.00";
+      total = 0;
+    }
+  </script>
+
+</body>
+</html>

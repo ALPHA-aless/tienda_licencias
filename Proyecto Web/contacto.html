@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Página Web</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: aqua;
+    }
+
+    /* Barra de menú */
+    .navbar {
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #575757;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .imagen-centro {
+      width: 300px;
+    }
+
+    .contacto-contenedor {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .formulario {
+      max-width: 400px;
+      text-align: left;
+    }
+
+    .formulario input, .formulario textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    .formulario input[type="submit"] {
+      background-color: crimson;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .formulario input[type="submit"]:hover {
+      background-color: darkred;
+    }
+
+    /* Estilo de la sección de testimonios */
+    .testimonios-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .testimonio {
+      background: #f0f0f0;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 300px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de menú -->
+  <div class="navbar">
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="contacto.html">Contacto</a>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="content">
+    <h1 style="color: crimson; text-align: center;">bienvenido a gamer store</h1>
+    <p style="text-align: center;">CUALQUIER SUGERENCIA</p>
+
+    <!-- Contacto e imagen lado a lado -->
+    <div class="contacto-contenedor">
+      <!-- Formulario -->
+      <div class="formulario">
+        <h2>Contáctanos</h2>
+        <form action="enviar.php" method="post">
+          <label for="nombre">Nombre:</label><br>
+          <input type="text" id="nombre" name="nombre" required><br>
+
+          <label for="apellido">Apellido:</label><br>
+          <input type="text" id="apellido" name="apellido" required><br>
+
+          <label for="email">Correo electrónico:</label><br>
+          <input type="email" id="email" name="email" required><br>
+
+          <label for="mensaje">Mensaje:</label><br>
+          <textarea id="mensaje" name="mensaje" rows="5" required></textarea><br>
+
+          <input type="submit" value="Enviar">
+        </form>
+      </div>
+
+      <!-- Imagen a la derecha del formulario -->
+      <img src="https://www.necdigitalstore.com/files/images/productos/1694636718-mando-ps5-dualsense-spider-man-2-limited-edition-1.jpg" alt="Mando PS5 Spider-Man" class="imagen-centro">
+    </div>
+  </div>
+
+  <!-- Sección de Testimonios (al final de la página) -->
+  <section id="testimonios">
+    <h2 style="text-align: center; color: darkgreen;">Testimonios de nuestros clientes</h2>
+    <div class="testimonios-container">
+      
+      <div class="testimonio">
+        <p>"¡Excelente atención! Compré un control y llegó al día siguiente. 100% recomendado."</p>
+        <strong>— Ana G.</strong>
+      </div>
+
+      <div class="testimonio">
+        <p>"Me encantaron los precios y la calidad de los productos. Volveré a comprar seguro."</p>
+        <strong>— Luis R.</strong>
+      </div>
+
+      <div class="testimonio">
+        <p>"La atención al cliente es buenísima. Me ayudaron a elegir lo mejor para mi setup gamer."</p>
+        <strong>— Valeria M.</strong>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
