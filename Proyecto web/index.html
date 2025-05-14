@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>GAME STORE</title>
+  <style>
+    /* Estilo para el cuerpo */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-image: url('https://img.freepik.com/vector-gratis/fondo-tecnologia-purpura-degradado_23-2149108837.jpg?t=st=1747010414~exp=1747014014~hmac=e2b063f741db7b2116f4bf11474ca444f33f9cb95185b1157032573747c55f11&w=826'); /* Imagen de fondo */
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+    }
+
+    /* Barra de menú */
+    .navbar {
+      background-color: #383434;
+      overflow: hidden;
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #000000;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .titulo-principal, .bienvenida {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      color: rgba(231, 28, 221, 0.856);
+      text-shadow: 2px 2px 3px black;
+    }
+
+    .titulo-principal {
+      font-size: 60px;
+      margin-top: 30px;
+    }
+
+    .bienvenida {
+      font-size: 26px;
+      margin-top: 20px;
+      line-height: 1.5;
+      color: rgb(19, 4, 4);
+      text-align:center;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      font-size: 24px;
+      color: rgb(255, 255, 255);
+      text-shadow: 1px 1px 22px hsl(0, 0%, 5%);
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+
+    .game-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .game {
+      text-align: center;
+      margin: 10px;
+      width: 200px;
+    }
+
+    .game img {
+      width: 100%;
+      height: auto;
+    }
+
+    .price {
+      font-size: 1.2em;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    .stars {
+      color: gold;
+      margin-top: 5px;
+    }
+
+    .game button {
+      margin: 5px 0;
+      padding: 5px 10px;
+      border: none;
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .game button:hover {
+      background-color: #218838;
+    }
+
+    #carrito {
+      margin-top: 30px;
+      font-size: 1.2em;
+      background-color: #f1f1f1;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    #carrito button {
+      background-color: #007bff;
+      margin-top: 10px;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .producto {
+      margin: 20px;
+      display: inline-block;
+    }
+
+    .carrito {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+
+    #total {
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 40px;
+      border-top: 2px solid #333;
+      padding: 15px;
+      background-color: #f1f1f1;
+      text-align: center;
+    }
+
+    .social-icons img {
+      width: 50px;
+      margin: 0 10px;
+      vertical-align: middle;
+    }
+
+    /* Estilo para el formulario de pago */
+    .container {
+      width: 300px;
+      margin: 20px auto;
+      padding: 50px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      background-color: #fff;
+      display: none; /* Inicialmente oculto */
+    }
+    .logos {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 5px;
+    }
+    .logos img {
+      width: 50px;
+      height: auto;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .form-group input {
+      width: 100%;
+      height: 40px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .btn-pagar {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn-pagar:hover {
+      background-color: #3e8e41;
+    }
+    .mensaje {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e6ffe6;
+      color: #2e7d32;
+      border: 1px solid #a5d6a7;
+      border-radius: 8px;
+      text-align: center;
+      animation: aparecer 0.5s ease;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de menú -->
+  <div class="navbar">
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="contacto.html">Contacto</a>
+  </div>
+  <!-- Contenido de la página -->
+  <div class="content">
+    <h1 class="titulo-principal">Bienvenidos a Game Store</h1>
+    <p class="bienvenida">
+      ¡Prepárate para entrar al universo donde cada partida es una aventura! 🎮<br>
+      En <strong>Game Store</strong>, tu destino gamer, descubrirás los mejores títulos para PS4, desde clásicos que marcaron historia hasta las últimas joyas recién lanzadas.<br>
+      No vendemos solo juegos... ¡ofrecemos mundos enteros para conquistar!
+    </p>
+  </div>
+
+
+    <!-- Sección de videojuegos -->
+<div class="game-container">
+  <!-- Juego 1 -->
+  <div class="game">
+    <img src="https://i5.walmartimages.com/seo/Call-of-Duty-Black-Ops-4-Activision-Playstation-4-Purchase-the-game-to-get-2XP-Only-at-Walmart_ca37d82d-2251-4b11-ab3f-e3e186d8d654_3.5b80c1f102fe93f52f76f1b4acca7f6e.png" alt="Call of Duty Black Ops 4">
+    <h3>Call of Duty Black Ops 4</h3>
+    <div class="price">S/ 90.00</div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Call of Duty Black Ops 4', 90)">Añadir al carrito</button>
+  </div>
+
+
+  <!-- Juego 2 -->
+  <div class="game">
+    <img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2017/10/dragon-ball-fighterz-portada-ps4.jpg?tf=640x" alt="Dragon Ball Fighter Z">
+    <h3>Dragon Ball Fighter Z</h3>
+    <div class="price">S/ 110.00</div>
+    <div class="stars">⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Dragon Ball Fighter Z', 110)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 3 -->
+  <div class="game">
+    <img src="https://juegosdigitalesperu.com/files/images/productos/1570317104-crash-team-racing-nitro-fueled-ps4.png" alt="Crash Team Racing">
+    <h3>Crash Team Racing Nitro</h3>
+    <div class="price">S/ 130.00</div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Crash Team Racing Nitro', 130)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 4 -->
+  <div class="game">
+    <img src="https://www.portalgames.com.ar/wp-content/uploads/2020/04/GTA-V.-premium-Edition-510x630.jpg" alt="GTA V">
+    <h3>Grand Theft Auto V</h3>
+    <div class="price">S/ 50.00</div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Grand Theft Auto V', 50)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 5 -->
+  <div class="game">
+    <img src="https://juegosdigitalesperu.com/files/images/productos/1570816839-mortal-kombat-11-ps4.png" alt="Mortal Kombat 11">
+    <h3>Mortal Kombat 11 complete edition</h3>
+    <div class="price">S/ 200.00</div>
+    <div class="stars">⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Mortal Kombat 11 complete edition', 200)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 6 -->
+  <div class="game">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_721710-MLA43428634827_092020-O.webp" alt="Ghost of Tsushima">
+    <h3>Ghost of Tsushima</h3>
+    <div class="price">S/ 89.00</div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Ghost of Tsushima', 89)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 7 -->
+  <div class="game">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_853815-MLU78020820114_082024-O.webp" alt="Red Dead Redemption 2">
+    <h3>Red Dead Redemption 2</h3>
+    <div class="price">S/ 75.00</div>
+    <div class="stars">⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Red Dead Redemption 2', 75)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 8 -->
+  <div class="game">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_903791-MLA51178807345_082022-O.webp" alt="Elden Ring">
+    <h3>Elden Ring Remastered</h3>
+    <div class="price">S/ 85.00</div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Elden Ring Remastered', 85)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 9 -->
+  <div class="game">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_654961-MLU78259396799_082024-O.webp" alt="Minecraft">
+    <h3>Minecraft Edition Java</h3>
+    <div class="price">S/ 95.00</div>
+    <div class="stars">⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Minecraft Edition Java', 95)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 10 -->
+  <div class="game">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_818605-MLA40917205147_022020-O.webp" alt="Resident Evil 2">
+    <h3>Resident Evil 2</h3>
+    <div class="price">S/ 70.00</div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Resident Evil 2', 70)">Añadir al carrito</button>
+  </div>
+
+  <!-- Juego 11 -->
+  <div class="game">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_617729-MLU70912626351_082023-O.webp" alt="Street Fighter">
+    <h3>Street Fighter</h3>
+    <div class="price">S/ 79.00</div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <button onclick="agregarCarrito('Street Fighter', 79)">Añadir al carrito</button>
+  </div>
+  
+
+  <!-- Juego 12 -->
+  <div class="game">
+    <img
+  </div>
+
+  <!-- Carrito -->
+  <div id="carrito">
+    <h2>🛒 Carrito de Compras</h2>
+    <ul id="listaCarrito"></ul>
+    <p id="total">Total: S/ 0.00</p>
+    <button onclick="finalizarCompra()">Finalizar compra</button>
+    <p id="mensajeGracias"></p>
+  </div>
+
+<!-- Formulario de pago (más ancho y centrado como ventana emergente) -->
+<div id="metodoPago" style="
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 30px;
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+">
+  <div class="logos" style="text-align: center; margin-bottom: 15px;">
+    <img src="https://ingenieriacivilyconstruccion.com/wp-content/uploads/2024/12/Icono-1.png" alt="Logo Banco" style="height: 30px; margin: 0 5px;">
+    <img src="https://logosenvector.com/logo/img/visa-730.jpg" alt="Logo Visa" style="height: 30px; margin: 0 5px;">
+    <img src="https://logosenvector.com/logo/img/eurocard--mastercard-28191.jpg" alt="Logo Mastercard" style="height: 30px; margin: 0 5px;">
+  </div>
+  <h2 style="text-align: center;">Pago con tarjeta</h2>
+  <form onsubmit="validarPago(event)">
+    <div class="form-group" style="margin-bottom: 10px;">
+      <label>Número de tarjeta</label><br>
+      <input id="tarjeta" type="text" placeholder="XXXX-XXXX-XXXX-XXXX" inputmode="numeric" style="width: 100%; padding: 10px;" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+      <small id="errorTarjeta" style="color: red; display: none;">Complete el campo con números.</small>
+    </div>
+    <div class="form-group" style="margin-bottom: 10px;">
+      <label>Fecha de vencimiento</label><br>
+      <input id="vencimiento" type="text" placeholder="MM/AA" inputmode="numeric" style="width: 100%; padding: 10px;" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+      <small id="errorVencimiento" style="color: red; display: none;">Complete el campo con números.</small>
+    </div>
+    <div class="form-group" style="margin-bottom: 10px;">
+      <label>Código de seguridad</label><br>
+      <input id="cvv" type="text" placeholder="CVV" inputmode="numeric" style="width: 100%; padding: 10px;" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+      <small id="errorCVV" style="color: red; display: none;">Complete el campo con números.</small>
+    </div>
+    <p id="totalPago" style="font-weight: bold;"></p>
+    <button class="btn-pagar" style="width: 100%; padding: 12px;">Pagar</button>
+  </form>
+</div>
+
+<!-- Mensaje emergente de agradecimiento -->
+<div id="mensajeGracias" style="
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 30px;
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  color: green;
+">
+  <p><strong>¡Gracias por tu compra!</strong></p>
+  <p>Te agradecemos por elegirnos. ¡Nos vemos pronto!</p>
+  <button onclick="cerrarMensaje()" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">Cerrar</button>
+</div>
+
+<footer style="text-align:center; margin-top:50px;">
+  &copy; 2025 Game Store. Todos los derechos reservados.
+</footer>
+
+<script>
+  let total = 0;
+
+  function agregarCarrito(nombre, precio) {
+    const lista = document.getElementById('listaCarrito');
+    const item = document.createElement('li');
+    item.textContent = `${nombre} - S/ ${precio.toFixed(2)}`;
+    lista.appendChild(item);
+
+    total += precio;
+    document.getElementById('total').textContent = `Total: S/ ${total.toFixed(2)}`;
+  }
+
+  function finalizarCompra() {
+    if (total === 0) {
+      alert("Tu carrito está vacío.");
+      return;
+    }
+
+    document.getElementById("metodoPago").style.display = "block";
+    document.getElementById("totalPago").textContent = `Total a pagar: S/ ${total.toFixed(2)}`;
+  }
+
+  function validarPago(event) {
+    event.preventDefault();
+
+    const tarjeta = document.getElementById("tarjeta").value.trim();
+    const vencimiento = document.getElementById("vencimiento").value.trim();
+    const cvv = document.getElementById("cvv").value.trim();
+
+    const errorTarjeta = document.getElementById("errorTarjeta");
+    const errorVencimiento = document.getElementById("errorVencimiento");
+    const errorCVV = document.getElementById("errorCVV");
+
+    errorTarjeta.style.display = "none";
+    errorVencimiento.style.display = "none";
+    errorCVV.style.display = "none";
+
+    let errores = 0;
+
+    if (!tarjeta || isNaN(tarjeta)) {
+      errorTarjeta.style.display = "block";
+      errores++;
+    }
+
+    if (!vencimiento || isNaN(vencimiento)) {
+      errorVencimiento.style.display = "block";
+      errores++;
+    }
+
+    if (!cvv || isNaN(cvv)) {
+      errorCVV.style.display = "block";
+      errores++;
+    }
+
+    // Si no hay errores, cerrar el formulario de pago y mostrar el mensaje de agradecimiento
+    if (errores === 0) {
+      // Cerrar el formulario de pago
+      document.getElementById("metodoPago").style.display = "none";
+      // Mostrar el mensaje de agradecimiento
+      document.getElementById("mensajeGracias").style.display = "block";
+    }
+  }
+
+  function cerrarMensaje() {
+    // Cerrar el mensaje de agradecimiento
+    document.getElementById("mensajeGracias").style.display = "none";
+  }
+</script>
+
+</body>
+</html>

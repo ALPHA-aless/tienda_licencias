@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto - Gamer Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Estilo para el cuerpo */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-image: url('https://img.freepik.com/vector-gratis/fondo-tecnologia-purpura-degradado_23-2149108837.jpg?t=st=1747010414~exp=1747014014~hmac=e2b063f741db7b2116f4bf11474ca444f33f9cb95185b1157032573747c55f11&w=826'); /* Imagen de fondo */
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+    }
+
+    /* Barra de navegación */
+    .navbar {
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #b81515;
+    }
+
+    /* Contenido principal */
+    .content {
+      padding: 20px;
+    }
+
+    .imagen-centro {
+      width: 300px;
+    }
+
+    /* Contenedor de formulario de contacto */
+    .contacto-contenedor {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    /* Estilo para el formulario */
+    .formulario {
+      max-width: 400px;
+      text-align: left;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .formulario label {
+      font-size: 22px;
+      font-weight: bold;
+      color: black;
+    }
+
+    .formulario input,
+    .formulario textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .formulario input[type="submit"] {
+      background-color: crimson;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .formulario input[type="submit"]:hover {
+      background-color: darkred;
+    }
+
+    /* Estilo para el mensaje de agradecimiento */
+    .agradecimiento {
+      display: none;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de navegación -->
+  <div class="navbar">
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="contacto.html">Contacto</a>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="content">
+    <h1>Bienvenido a Gamer Store</h1>
+    <p>CUALQUIER SUGERENCIA</p>
+
+    <!-- Contenedor de formulario de contacto -->
+    <div class="contacto-contenedor" id="formulario-container">
+      <div class="formulario">
+        <h2>Contáctanos</h2>
+        <form id="form-contacto">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+          <label for="apellido">Apellido:</label>
+          <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
+
+          <label for="email">Correo electrónico:</label>
+          <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+          <input type="submit" value="Enviar">
+        </form>
+      </div>
+
+      <!-- Imagen promocional -->
+      <img src="https://www.necdigitalstore.com/files/images/productos/1694636718-mando-ps5-dualsense-spider-man-2-limited-edition-1.jpg" alt="Mando PS5 Spider-Man" class="imagen-centro">
+    </div>
+
+    <!-- Mensaje de agradecimiento -->
+    <div class="agradecimiento" id="agradecimiento">
+      <h1 style="color: green;">¡Gracias por contactarnos!</h1>
+      <p>Tu mensaje ha sido enviado correctamente. Nos pondremos en contacto contigo pronto.</p>
+      <a href="index.html" style="color: crimson; text-decoration: underline;">Volver al inicio</a>
+    </div>
+  </div>
+
+  <!-- Pie de página -->
+  <footer>
+    &copy; 2025 Gamer Store. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    document.getElementById("form-contacto").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      // Validar datos
+      const nombre = document.getElementById("nombre").value.trim();
+      const apellido = document.getElementById("apellido").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const mensaje = document.getElementById("mensaje").value.trim();
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+      let errores = "";
+
+      if (!nombre) errores += "El nombre es obligatorio.\n";
+      if (!apellido) errores += "El apellido es obligatorio.\n";
+      if (!emailRegex.test(email)) errores += "El correo electrónico no es válido.\n";
+      if (!mensaje) errores += "El mensaje no puede estar vacío.\n";
+
+      if (errores) {
+        alert(errores);
+      } else {
+        // Oculta el formulario y muestra mensaje de éxito
+        document.getElementById("formulario-container").style.display = "none";
+        document.getElementById("agradecimiento").style.display = "block";
+      }
+    });
+  </script>
+
+</body>
+</html>
